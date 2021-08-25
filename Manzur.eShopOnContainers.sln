@@ -8,6 +8,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{B199
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Core", "src\Modules\Catalog\Catalog.Core\Catalog.Core.csproj", "{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCuttingConcerns", "CrossCuttingConcerns", "{5A317A2D-0FDF-49C8-9BEC-6D65E4764F22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCuttingConcerns.Core", "src\CrossCuttingConcerns\CrossCuttingConcerns.Core\CrossCuttingConcerns.Core.csproj", "{6BEBF11E-CECC-4C1D-A9B4-A56B02FEC32D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +21,17 @@ Global
 		{70F4E866-3245-4927-A366-C4B083C8FF25} = {D18C3657-ED58-4113-811C-D26B8FF6B68C}
 		{B19995AD-10E7-4FA0-B543-AD49D4E574D4} = {70F4E866-3245-4927-A366-C4B083C8FF25}
 		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456} = {B19995AD-10E7-4FA0-B543-AD49D4E574D4}
+		{5A317A2D-0FDF-49C8-9BEC-6D65E4764F22} = {D18C3657-ED58-4113-811C-D26B8FF6B68C}
+		{6BEBF11E-CECC-4C1D-A9B4-A56B02FEC32D} = {5A317A2D-0FDF-49C8-9BEC-6D65E4764F22}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BEBF11E-CECC-4C1D-A9B4-A56B02FEC32D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BEBF11E-CECC-4C1D-A9B4-A56B02FEC32D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BEBF11E-CECC-4C1D-A9B4-A56B02FEC32D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BEBF11E-CECC-4C1D-A9B4-A56B02FEC32D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
