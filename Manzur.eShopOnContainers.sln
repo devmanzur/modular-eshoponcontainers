@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D18C3657-ED58-4113-811C-D26B8FF6B68C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{70F4E866-3245-4927-A366-C4B083C8FF25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{B19995AD-10E7-4FA0-B543-AD49D4E574D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Core", "src\Modules\Catalog\Catalog.Core\Catalog.Core.csproj", "{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70F4E866-3245-4927-A366-C4B083C8FF25} = {D18C3657-ED58-4113-811C-D26B8FF6B68C}
+		{B19995AD-10E7-4FA0-B543-AD49D4E574D4} = {70F4E866-3245-4927-A366-C4B083C8FF25}
+		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456} = {B19995AD-10E7-4FA0-B543-AD49D4E574D4}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
