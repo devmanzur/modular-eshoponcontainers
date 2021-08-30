@@ -16,13 +16,9 @@ namespace Catalog.Core.Models
 
         public string PictureUri { get; private set; }
 
-        public Guid CategoryId { get; private set; }
+        public CategoryData Category { get; private set; }
 
-        public Category Category { get; private set; }
-
-        public Guid BrandId { get; private set; }
-
-        public Brand Brand { get; private set; }
+        public BrandData Brand { get; private set; }
 
         public Stock AvailableStock { get; private set; }
 
