@@ -12,7 +12,7 @@ namespace Catalog.Core.Models
 
         public Price Price { get; private set; }
         
-        public ImageUrl ImageUrl { get; private set; }
+        public ImageId ImageId { get; private set; }
 
         public CategoryData Category { get; private set; }
 

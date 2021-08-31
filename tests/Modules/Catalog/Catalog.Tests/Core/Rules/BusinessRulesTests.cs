@@ -10,9 +10,8 @@ namespace Catalog.Core.Tests.Core.Rules
         [Fact]
         public void Given_valid_image_extension_it_is_accepted_as_valid_image_url()
         {
-            var imageUrl = "noushad.jpig";
-            var rule = new ImageUrlMustEndWithValidImageExtensionRule(imageUrl);
-
+            var imageUrl = GetValidImageUrl();
+            var rule = new ImageIdMustEndWithValidImageExtensionRule(imageUrl);
             var broken = rule.IsBroken();
 
             broken.Should().BeFalse();

@@ -3,11 +3,11 @@ using CrossCuttingConcerns.Core.ValueObjects;
 
 namespace Catalog.Core.ValueObjects
 {
-    public class ImageUrl : ValueData
+    public class ImageId : ValueData
     {
-        public ImageUrl(string value)
+        public ImageId(string value)
         {
-            CheckRule(new ImageUrlMustEndWithValidImageExtensionRule(value));
+            CheckRule(new ImageIdMustEndWithValidImageExtensionRule(value));
             Value = value;
         }
 
