@@ -8,6 +8,6 @@ namespace Catalog.Core.Repositories
 {
     public interface ICatalogItemsRepository
     {
-        Task<List<CatalogItem>> GetItems(Page page);
+        Task<List<Product>> GetItems(Page page);
     }
 }

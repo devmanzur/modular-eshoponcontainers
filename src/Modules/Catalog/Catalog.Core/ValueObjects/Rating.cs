@@ -2,9 +2,9 @@ using CrossCuttingConcerns.Core.ValueObjects;
 
 namespace Catalog.Core.ValueObjects
 {
-    public class ItemRating : ValueData
+    public class Rating : ValueData
     {
-        public ItemRating(int numberOfRatings, double averageRating)
+        public Rating(int numberOfRatings, double averageRating)
         {
             NumberOfRatings = numberOfRatings;
             AverageRating = averageRating;
