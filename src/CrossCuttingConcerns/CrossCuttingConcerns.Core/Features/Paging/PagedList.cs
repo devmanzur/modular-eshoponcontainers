@@ -16,7 +16,7 @@ namespace CrossCuttingConcerns.Core.Features.Paging
             {
                 PageSize = query.PageSize,
                 CurrentPage = query.PageNumber,
-                TotalPages = (int) Math.Ceiling(count / (double) query.PageSize)
+                TotalPages = items == null ? 0 : (int) Math.Ceiling(count / (double) query.PageSize)
             };
 
             Items = items;

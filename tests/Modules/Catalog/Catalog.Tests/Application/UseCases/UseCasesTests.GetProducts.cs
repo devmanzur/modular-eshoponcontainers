@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Catalog.Application.UseCases.GetProducts;
+using Catalog.Core.Models;
 using CrossCuttingConcerns.Core.Features.Paging;
 using FluentAssertions;
 using Moq;
@@ -42,8 +44,42 @@ namespace Catalog.Core.Tests.Application.UseCases
             actualResult.Meta.CurrentPage.Should().Be(pageNumber);
             actualResult.Meta.PageSize.Should().Be(pageSize);
             actualResult.Meta.TotalPages.Should().Be((int) Math.Ceiling(totalRepositoryItemCount / (double) pageSize));
+            
         }
 
+        [Fact]
+        public async Task Given_repository_returns_no_data_items_is_null_total_page_count_is_zero()
+        {
+            //given
+            var pageSize = GetValidPageSize();
+            var pageNumber = GetValidPageNumber();
+            List<Product> repositoryProducts = null;
+            var pagingQuery = new PagingQuery()
+            {
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            };
+            var totalRepositoryItemCount = pageSize * 5;
+
+            _productsRepositoryMoq.Setup(x => x.GetProducts(pagingQuery.PageSize, pagingQuery.Offset()))
+                .ReturnsAsync(repositoryProducts);
+
+            _productsRepositoryMoq.Setup(x => x.GetTotalCount())
+                .ReturnsAsync(totalRepositoryItemCount);
+
+            var query = new GetProductsQuery(pagingQuery);
+            var handler = new GetProductsQueryHandler(_productsRepositoryMoq.Object);
+
+            //when
+            var actualResult = await handler.Handle(query, new CancellationToken());
+
+            //then
+            actualResult.Items.Should().BeNull();
+            actualResult.Meta.CurrentPage.Should().Be(pageNumber);
+            actualResult.Meta.PageSize.Should().Be(pageSize);
+            actualResult.Meta.TotalPages.Should().Be(0);
+        }
+        
         [Fact]
         public async Task Given_page_size_over_max_limit_default_maximum_number_of_items_is_returned()
         {
