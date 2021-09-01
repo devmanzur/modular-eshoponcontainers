@@ -25,9 +25,13 @@ namespace Catalog.Core.Tests.Application.UseCases
         {
             return _faker.Random.Number(1, 30);
         }
-        private int GetOverLimitPageSize()
+        private int GetPageSizeOverMaxLimit()
         {
             return _faker.Random.Number(31, 100);
+        }
+        private int GetPageSizeBelowMinLimit()
+        {
+            return _faker.Random.Number(-100, 8);
         }
 
         private int GetValidPageNumber()

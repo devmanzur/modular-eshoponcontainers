@@ -2,7 +2,8 @@ namespace CrossCuttingConcerns.Core.Features.Paging
 {
     public class PagingQuery
     {
-        const int maxPageSize = 30;
+        const int maxPageSize = 50;
+        const int minPageSize = 10;
         private int _pageSize = 6;
 
         public int PageNumber { get; set; } = 1;
@@ -10,7 +11,7 @@ namespace CrossCuttingConcerns.Core.Features.Paging
         public int PageSize
         {
             get => _pageSize;
-            set => _pageSize = (value > maxPageSize) ? maxPageSize : value;
+            set => _pageSize = (value > maxPageSize) ? maxPageSize : (value < minPageSize) ? minPageSize : value;
         }
 
         public int Offset()
