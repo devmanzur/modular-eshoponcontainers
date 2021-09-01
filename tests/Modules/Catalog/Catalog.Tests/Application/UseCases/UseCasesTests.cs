@@ -13,6 +13,8 @@ namespace Catalog.Core.Tests.Application.UseCases
         private readonly Faker _faker;
         private readonly Mock<IProductsRepository> _productsRepositoryMoq;
         private readonly Fixture _fixture;
+        private const int MaxPageSize = 50;
+        private const int MinPageSize = 10;
 
         public UseCasesTests()
         {
@@ -23,20 +25,22 @@ namespace Catalog.Core.Tests.Application.UseCases
 
         private int GetValidPageSize()
         {
-            return _faker.Random.Number(1, 30);
+            return _faker.Random.Number(MinPageSize, MaxPageSize);
         }
+
         private int GetPageSizeOverMaxLimit()
         {
-            return _faker.Random.Number(31, 100);
+            return _faker.Random.Number(MaxPageSize+1, 100);
         }
+
         private int GetPageSizeBelowMinLimit()
         {
-            return _faker.Random.Number(-100, 8);
+            return _faker.Random.Number(-100, MinPageSize-1);
         }
 
         private int GetValidPageNumber()
         {
-            return _faker.Random.Number(1,100);
+            return _faker.Random.Number(1, 100);
         }
 
         private List<Product> CreateRandomRepositoryProducts(int pageSize)
