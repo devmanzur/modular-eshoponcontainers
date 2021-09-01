@@ -4,21 +4,22 @@ using System.Linq;
 
 namespace CrossCuttingConcerns.Core.Features.Paging
 {
-    public class PagedList<T> : List<T>
+    public class PagedList<T>
     {
-        public PagingMetaData MetaData { get; set; }
+        public PagingMetaData Meta { get; set; }
 
-        public PagedList(List<T> items, int count, int pageNumber, int pageSize)
+        public List<T> Items { get; set; }
+
+        public PagedList(List<T> items, PagingQuery query, int count)
         {
-            MetaData = new PagingMetaData
+            Meta = new PagingMetaData
             {
-                TotalCount = count,
-                PageSize = pageSize,
-                CurrentPage = pageNumber,
-                TotalPages = (int) Math.Ceiling(count / (double) pageSize)
+                PageSize = query.PageSize,
+                CurrentPage = query.PageNumber,
+                TotalPages = (int) Math.Ceiling(count / (double) query.PageSize)
             };
 
-            AddRange(items.Skip((pageNumber - 1) * pageSize).Take(pageSize));
+            Items = items;
         }
     }
 }

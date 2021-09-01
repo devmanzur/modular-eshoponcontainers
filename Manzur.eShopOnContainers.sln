@@ -20,6 +20,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{0B36
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Tests", "tests\Modules\Catalog\Catalog.Tests\Catalog.Tests.csproj", "{28CC31BB-E4B2-492D-A731-13534596A5AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Application", "src\Modules\Catalog\Catalog.Application\Catalog.Application.csproj", "{E693C121-8898-41F2-B737-962A443F64EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCuttingConcerns.Application", "src\CrossCuttingConcerns\CrossCuttingConcerns.Application\CrossCuttingConcerns.Application.csproj", "{9D10E7A4-35E0-4CFB-A655-63285A2BD14E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +38,8 @@ Global
 		{C0E4279A-9482-42DA-A90B-335074F641B7} = {86D9195A-E8E5-4B54-ACDD-5827362EF599}
 		{0B361022-38E1-4D54-B4FE-1D2E75727E7A} = {C0E4279A-9482-42DA-A90B-335074F641B7}
 		{28CC31BB-E4B2-492D-A731-13534596A5AD} = {0B361022-38E1-4D54-B4FE-1D2E75727E7A}
+		{E693C121-8898-41F2-B737-962A443F64EB} = {B19995AD-10E7-4FA0-B543-AD49D4E574D4}
+		{9D10E7A4-35E0-4CFB-A655-63285A2BD14E} = {5A317A2D-0FDF-49C8-9BEC-6D65E4764F22}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FF38052C-3EF7-4C71-B09E-CB7C9F2BB456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -48,5 +54,13 @@ Global
 		{28CC31BB-E4B2-492D-A731-13534596A5AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28CC31BB-E4B2-492D-A731-13534596A5AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28CC31BB-E4B2-492D-A731-13534596A5AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E693C121-8898-41F2-B737-962A443F64EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E693C121-8898-41F2-B737-962A443F64EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E693C121-8898-41F2-B737-962A443F64EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E693C121-8898-41F2-B737-962A443F64EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D10E7A4-35E0-4CFB-A655-63285A2BD14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D10E7A4-35E0-4CFB-A655-63285A2BD14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D10E7A4-35E0-4CFB-A655-63285A2BD14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D10E7A4-35E0-4CFB-A655-63285A2BD14E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
