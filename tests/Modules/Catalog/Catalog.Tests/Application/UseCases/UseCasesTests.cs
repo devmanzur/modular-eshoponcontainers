@@ -15,6 +15,7 @@ namespace Catalog.Core.Tests.Application.UseCases
         private readonly Fixture _fixture;
         private const int MaxPageSize = 50;
         private const int MinPageSize = 10;
+        private const int MinPageNumber = 1;
 
         public UseCasesTests()
         {
@@ -40,12 +41,17 @@ namespace Catalog.Core.Tests.Application.UseCases
 
         private int GetValidPageNumber()
         {
-            return _faker.Random.Number(1, 100);
+            return _faker.Random.Number(MinPageNumber, 100);
         }
 
         private List<Product> CreateRandomRepositoryProducts(int pageSize)
         {
             return _fixture.CreateMany<Product>(pageSize).ToList();
+        }
+
+        private int GetPageNumberBelowMinLimit()
+        {
+            return _faker.Random.Number(-100, MinPageNumber-1);
         }
     }
 }
