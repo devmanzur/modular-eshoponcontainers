@@ -13,28 +13,7 @@ namespace CrossCuttingConcerns.Core.Features.Paging
             set => _pageSize = (value > maxPageSize) ? maxPageSize : value;
         }
 
-        public string OrderBy { get; set; }
-
-        private string _orderKey()
-        {
-            if (OrderBy != null && OrderBy.Split(" ").Length > 0)
-                return OrderBy.Split(" ")[0];
-
-            return null;
-        }
-
-        private string _direction()
-        {
-            if (OrderBy != null && OrderBy.Split(" ").Length > 1)
-                return OrderBy.Split(" ")[1];
-
-            return null;
-        }
-
-        public string OrderKey => _orderKey()?.ToLower();
-        public bool IsDescending => _direction()?.ToLower() == "desc";
-
-        public int Skip()
+        public int Offset()
         {
             return GetCurrentIndex() * PageSize;
         }

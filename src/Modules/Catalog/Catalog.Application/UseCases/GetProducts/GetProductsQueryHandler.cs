@@ -18,7 +18,7 @@ namespace Catalog.Application.UseCases.GetProducts
         
         public async Task<PagedList<Product>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            var products = await _productsRepository.GetProducts(request.Query.PageSize, request.Query.Skip());
+            var products = await _productsRepository.GetProducts(request.Query.PageSize, request.Query.Offset());
             var count = await _productsRepository.GetTotalCount();
             return new PagedList<Product>(products, request.Query,count);
         }
