@@ -6,7 +6,7 @@ using CrossCuttingConcerns.Core.Features.Paging;
 
 namespace Catalog.Core.Repositories
 {
-    public interface ICatalogItemsRepository
+    public interface IProductsRepository
     {
         Task<List<Product>> GetItems(Page page);
     }

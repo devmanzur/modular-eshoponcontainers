@@ -2,16 +2,16 @@ using CrossCuttingConcerns.Core.ValueObjects;
 
 namespace Catalog.Core.ValueObjects
 {
-    public class Rating : ValueData
+    public class AverageRating : ValueData
     {
-        public Rating(int numberOfRatings, double averageRating)
+        public AverageRating(int numberOfRatings, double average)
         {
             NumberOfRatings = numberOfRatings;
-            AverageRating = averageRating;
+            Average = average;
         }
 
         public int NumberOfRatings { get; private set; }
 
-        public double AverageRating { get; private set; }
+        public double Average { get; private set; }
     }
 }

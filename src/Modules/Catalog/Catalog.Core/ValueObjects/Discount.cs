@@ -20,5 +20,10 @@ namespace Catalog.Core.ValueObjects
         public string Details { get; private set; }
         public Duration Duration { get; private set; }
         public Price Price { get; private set; }
+
+        public bool IsActive()
+        {
+            return Duration.IsActive();
+        }
     }
 }

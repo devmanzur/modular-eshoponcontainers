@@ -1,3 +1,4 @@
+using Catalog.Core.Rules;
 using CrossCuttingConcerns.Core.ValueObjects;
 
 namespace Catalog.Core.ValueObjects
@@ -6,6 +7,7 @@ namespace Catalog.Core.ValueObjects
     {
         public Stock(int value)
         {
+            CheckRule(new StockMustNotBeNegativeRule(value));
             Value = value;
         }
 
