@@ -74,7 +74,8 @@ namespace Catalog.Core.Tests.Application.UseCases
             var actualResult = await handler.Handle(query, new CancellationToken());
 
             //then
-            actualResult.Items.Should().BeNull();
+            actualResult.Items.Should().NotBeNull();
+            actualResult.Items.Should().BeEmpty();
             actualResult.Meta.CurrentPage.Should().Be(pageNumber);
             actualResult.Meta.PageSize.Should().Be(pageSize);
             actualResult.Meta.TotalPages.Should().Be(0);

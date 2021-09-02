@@ -19,7 +19,7 @@ namespace CrossCuttingConcerns.Core.Features.Paging
                 TotalPages = items == null ? 0 : (int) Math.Ceiling(count / (double) query.PageSize)
             };
 
-            Items = items;
+            Items = items ?? new List<T>();
         }
     }
 }
