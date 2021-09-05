@@ -1,13 +1,14 @@
+using Catalog.Core.ValueObjects;
 using CrossCuttingConcerns.Core.Models;
 using CrossCuttingConcerns.Core.ValueObjects;
 
-namespace Catalog.Core.Models
+namespace Catalog.Core.Models.Catalog
 {
     public class SpecialOffer : BaseEntity
     {
         public string Title { get; set; }
         public string Details { get; set; }
-        public string ImageUrl { get; set; }
+        public ImageId ImageId { get; set; }
         public Duration Duration { get; set; }
     }
 }

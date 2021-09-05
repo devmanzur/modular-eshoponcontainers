@@ -28,6 +28,9 @@ namespace Catalog.Core.Models
         private List<Attribute> _attributes = new List<Attribute>();
         public IReadOnlyList<Attribute> Attributes => _attributes.ToList();
 
+        private List<Review> _reviews = new List<Review>();
+        public IReadOnlyList<Review> Reviews => _reviews.ToList();
+
         public void AddDiscount(Discount discount)
         {
             Discount = discount;

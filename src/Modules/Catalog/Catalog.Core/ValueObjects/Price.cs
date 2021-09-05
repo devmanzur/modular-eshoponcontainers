@@ -13,5 +13,7 @@ namespace Catalog.Core.ValueObjects
 
         public decimal Value { get; private set; }
         public Currency Currency { get; private set; }
+
+        public string Tag() => $"{Currency} {Value:N}";
     }
 }

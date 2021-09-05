@@ -1,5 +1,6 @@
 using System;
 using Catalog.Core.Models;
+using Catalog.Core.Models.Catalog;
 using CrossCuttingConcerns.Core.ValueObjects;
 
 namespace Catalog.Core.ValueObjects

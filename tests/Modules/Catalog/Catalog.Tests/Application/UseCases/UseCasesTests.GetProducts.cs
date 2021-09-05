@@ -48,7 +48,7 @@ namespace Catalog.Core.Tests.Application.UseCases
         }
 
         [Fact]
-        public async Task Given_repository_returns_no_data_items_is_null_total_page_count_is_zero()
+        public async Task Given_repository_returns_no_data_items_is_empty_total_page_count_is_zero()
         {
             //given
             var pageSize = GetValidPageSize();

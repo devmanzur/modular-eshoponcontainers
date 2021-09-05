@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using AutoMapper;
 using Catalog.Api.Models;
 using Catalog.Application.UseCases.GetProducts;
 using CrossCuttingConcerns.Api.Models;
@@ -11,17 +12,20 @@ namespace Catalog.Api.Controllers
     public class ProductsController : BaseApiController
     {
         private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public ProductsController(IMediator mediator)
+        public ProductsController(IMediator mediator,IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<Envelope<ProductDto>>> Get([FromQuery] PagingQuery query)
+        public async Task<ActionResult<Envelope<PagedListResponse<ProductDto>>>> Get([FromQuery] PagingQuery query)
         {
             var getProductsQuery = new GetProductsQuery(query);
-            var response = await _mediator.Send(getProductsQuery);
+            var data = await _mediator.Send(getProductsQuery);
+            var response = _mapper.Map<PagedListResponse<ProductDto>>(data);
             return Ok(Envelope.Ok(response));
         }
     }
