@@ -1,7 +1,7 @@
 using Catalog.Core.ValueObjects;
 using CrossCuttingConcerns.Core.Models;
 
-namespace Catalog.Core.Models.Catalog
+namespace Catalog.Core.Models
 {
     public class Brand : BaseEntity
     {

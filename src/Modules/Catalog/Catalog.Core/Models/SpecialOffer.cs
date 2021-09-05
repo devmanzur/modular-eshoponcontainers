@@ -2,7 +2,7 @@ using Catalog.Core.ValueObjects;
 using CrossCuttingConcerns.Core.Models;
 using CrossCuttingConcerns.Core.ValueObjects;
 
-namespace Catalog.Core.Models.Catalog
+namespace Catalog.Core.Models
 {
     public class SpecialOffer : BaseEntity
     {
