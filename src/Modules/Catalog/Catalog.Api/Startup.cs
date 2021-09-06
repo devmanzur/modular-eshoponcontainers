@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Catalog.Api.Utils;
+using Catalog.Application.Utils;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +24,9 @@ namespace Catalog.Api
             services.AddHttpContextAccessor();
             services.AddSwagger("Catalog API", "Catalog API for the modular monolith eshop on containers");
             services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddApplication();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

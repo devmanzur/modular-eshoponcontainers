@@ -26,6 +26,12 @@ namespace Catalog.Core.Tests.Application.UseCases
                 PageSize = pageSize
             };
             var totalRepositoryItemCount = pageSize * 5;
+            var expectedMeta = new PagingMetaData()
+            {
+                CurrentPage =  pageNumber,
+                PageSize = pageSize,
+                TotalPages = (int) Math.Ceiling(totalRepositoryItemCount / (double) pageSize)
+            };
 
             _productsRepositoryMoq.Setup(x => x.GetProducts(pagingQuery.PageSize, pagingQuery.Offset()))
                 .ReturnsAsync(repositoryProducts);
@@ -41,10 +47,7 @@ namespace Catalog.Core.Tests.Application.UseCases
 
             //then
             actualResult.Items.Count.Should().Be(pageSize);
-            actualResult.Meta.CurrentPage.Should().Be(pageNumber);
-            actualResult.Meta.PageSize.Should().Be(pageSize);
-            actualResult.Meta.TotalPages.Should().Be((int) Math.Ceiling(totalRepositoryItemCount / (double) pageSize));
-            
+            actualResult.Meta.Should().Be(expectedMeta);
         }
 
         [Fact]

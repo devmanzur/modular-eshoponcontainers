@@ -8,7 +8,8 @@ namespace Catalog.Api.Mappings
 {
     public class ProductDtoMappingProfile : Profile
     {
-        public ProductDtoMappingProfile(IConfiguration configuration)
+        
+        public ProductDtoMappingProfile()
         {
             CreateMap<Product, ProductDto>()
                 .ForMember(dest => dest.RegularPrice,
@@ -19,7 +20,7 @@ namespace Catalog.Api.Mappings
                         opt.MapFrom(src => src.Discount == null ? src.RegularPrice.Tag() : src.Discount.Price.Tag()))
                 .ForMember(dest => dest.ImageUrl,
                     opt =>
-                        opt.MapFrom(src => src.ImageId.FillProductUrl(configuration)));
+                        opt.MapFrom(src => src.ImageId.Value));
         }
     }
 }
