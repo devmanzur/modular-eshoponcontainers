@@ -28,7 +28,7 @@ namespace Catalog.Core.Tests.Application.UseCases
             var totalRepositoryItemCount = pageSize * 5;
             var expectedMeta = new PagingMetaData()
             {
-                CurrentPage =  pageNumber,
+                CurrentPage = pageNumber,
                 PageSize = pageSize,
                 TotalPages = (int) Math.Ceiling(totalRepositoryItemCount / (double) pageSize)
             };
@@ -62,6 +62,12 @@ namespace Catalog.Core.Tests.Application.UseCases
                 PageNumber = pageNumber,
                 PageSize = pageSize
             };
+            var expectedMeta = new PagingMetaData()
+            {
+                CurrentPage = pageNumber,
+                PageSize = pageSize,
+                TotalPages = 0
+            };
             var totalRepositoryItemCount = pageSize * 5;
 
             _productsRepositoryMoq.Setup(x => x.GetProducts(pagingQuery.PageSize, pagingQuery.Offset()))
@@ -79,11 +85,9 @@ namespace Catalog.Core.Tests.Application.UseCases
             //then
             actualResult.Items.Should().NotBeNull();
             actualResult.Items.Should().BeEmpty();
-            actualResult.Meta.CurrentPage.Should().Be(pageNumber);
-            actualResult.Meta.PageSize.Should().Be(pageSize);
-            actualResult.Meta.TotalPages.Should().Be(0);
+            actualResult.Meta.Should().Be(expectedMeta);
         }
-        
+
         [Fact]
         public async Task Given_page_size_over_max_limit_default_maximum_number_of_items_is_returned()
         {
@@ -91,12 +95,18 @@ namespace Catalog.Core.Tests.Application.UseCases
             var pageSize = GetPageSizeOverMaxLimit();
             var pageNumber = GetValidPageNumber();
             var repositoryProducts = CreateRandomRepositoryProducts(MaxPageSize);
+            var totalRepositoryItemCount = pageSize * 5;
             var pagingQuery = new PagingQuery()
             {
                 PageNumber = pageNumber,
                 PageSize = pageSize
             };
-            var totalRepositoryItemCount = pageSize * 5;
+            var expectedMeta = new PagingMetaData()
+            {
+                CurrentPage = pageNumber,
+                PageSize = MaxPageSize,
+                TotalPages = (int) Math.Ceiling(totalRepositoryItemCount / (double) MaxPageSize)
+            };
 
             _productsRepositoryMoq.Setup(x => x.GetProducts(pagingQuery.PageSize, pagingQuery.Offset()))
                 .ReturnsAsync(repositoryProducts);
@@ -112,10 +122,7 @@ namespace Catalog.Core.Tests.Application.UseCases
 
             //then
             actualResult.Items.Count.Should().Be(MaxPageSize);
-            actualResult.Meta.CurrentPage.Should().Be(pageNumber);
-            actualResult.Meta.PageSize.Should().Be(MaxPageSize);
-            actualResult.Meta.TotalPages.Should()
-                .Be((int) Math.Ceiling(totalRepositoryItemCount / (double) MaxPageSize));
+            actualResult.Meta.Should().Be(expectedMeta);
         }
 
         [Fact]
@@ -132,6 +139,13 @@ namespace Catalog.Core.Tests.Application.UseCases
             };
             var totalRepositoryItemCount = pageSize * 5;
 
+            var expectedMeta = new PagingMetaData()
+            {
+                CurrentPage = pageNumber,
+                PageSize = MinPageSize,
+                TotalPages = (int) Math.Ceiling(totalRepositoryItemCount / (double) MinPageSize)
+            };
+
             _productsRepositoryMoq.Setup(x => x.GetProducts(pagingQuery.PageSize, pagingQuery.Offset()))
                 .ReturnsAsync(repositoryProducts);
 
@@ -146,12 +160,9 @@ namespace Catalog.Core.Tests.Application.UseCases
 
             //then
             actualResult.Items.Count.Should().Be(MinPageSize);
-            actualResult.Meta.CurrentPage.Should().Be(pageNumber);
-            actualResult.Meta.PageSize.Should().Be(MinPageSize);
-            actualResult.Meta.TotalPages.Should()
-                .Be((int) Math.Ceiling(totalRepositoryItemCount / (double) MinPageSize));
+            actualResult.Meta.Should().Be(expectedMeta);
         }
-        
+
         [Fact]
         public async Task Given_page_number_below_min_limit_default_page_number_is_returned()
         {
@@ -165,6 +176,13 @@ namespace Catalog.Core.Tests.Application.UseCases
                 PageSize = pageSize
             };
             var totalRepositoryItemCount = pageSize * 5;
+
+            var expectedMeta = new PagingMetaData()
+            {
+                CurrentPage = MinPageNumber,
+                PageSize = pageSize,
+                TotalPages = (int) Math.Ceiling(totalRepositoryItemCount / (double) pageSize)
+            };
 
             _productsRepositoryMoq.Setup(x => x.GetProducts(pagingQuery.PageSize, pagingQuery.Offset()))
                 .ReturnsAsync(repositoryProducts);
@@ -180,9 +198,7 @@ namespace Catalog.Core.Tests.Application.UseCases
 
             //then
             actualResult.Items.Count.Should().Be(pageSize);
-            actualResult.Meta.CurrentPage.Should().Be(MinPageNumber);
-            actualResult.Meta.PageSize.Should().Be(pageSize);
-            actualResult.Meta.TotalPages.Should().Be((int) Math.Ceiling(totalRepositoryItemCount / (double) pageSize));
+            actualResult.Meta.Should().Be(expectedMeta);
         }
     }
 }
