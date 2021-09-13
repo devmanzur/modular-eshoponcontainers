@@ -10,8 +10,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\CrossCuttingConcerns\CrossCuttingConcerns.Api\CrossCuttingConcerns.Api.csproj" />
-      <ProjectReference Include="..\Catalog.Application\Catalog.Application.csproj" />
+        <ProjectReference Include="..\..\CrossCuttingConcerns\CrossCuttingConcerns.Api\CrossCuttingConcerns.Api.csproj" />
+        <ProjectReference Include="..\..\Modules\Catalog\Catalog.Application\Catalog.Application.csproj" />
+        <ProjectReference Include="..\..\Modules\Catalog\Catalog.Core\Catalog.Core.csproj" />
     </ItemGroup>
 
 </Project>

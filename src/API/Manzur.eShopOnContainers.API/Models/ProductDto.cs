@@ -1,6 +1,7 @@
+
 using Catalog.Core.ValueObjects;
 
-namespace Catalog.Api.Models
+namespace Manzur.eShopOnContainers.API.Models
 {
     public class ProductDto
     {

@@ -5,9 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 
-namespace Catalog.Api.Utils
+namespace Manzur.eShopOnContainers.API.Utils
 {
-    public static class SaggerDependencyUtils
+    public static class SwaggerDependencyUtils
     {
         public static void AddSwagger(this IServiceCollection services, string title, string description)
         {

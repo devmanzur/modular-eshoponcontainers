@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Catalog.Api.Controllers
+namespace Manzur.eShopOnContainers.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]

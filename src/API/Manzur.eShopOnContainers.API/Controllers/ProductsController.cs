@@ -1,13 +1,13 @@
 using System.Threading.Tasks;
 using AutoMapper;
-using Catalog.Api.Models;
 using Catalog.Application.UseCases.GetProducts;
 using CrossCuttingConcerns.Api.Models;
 using CrossCuttingConcerns.Core.Features.Paging;
+using Manzur.eShopOnContainers.API.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Catalog.Api.Controllers
+namespace Manzur.eShopOnContainers.API.Controllers
 {
     public class ProductsController : BaseApiController
     {

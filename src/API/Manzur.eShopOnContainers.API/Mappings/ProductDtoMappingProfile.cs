@@ -1,10 +1,8 @@
 using AutoMapper;
-using Catalog.Api.Models;
-using Catalog.Api.Utils;
 using Catalog.Core.Models;
-using Microsoft.Extensions.Configuration;
+using Manzur.eShopOnContainers.API.Models;
 
-namespace Catalog.Api.Mappings
+namespace Manzur.eShopOnContainers.API.Mappings
 {
     public class ProductDtoMappingProfile : Profile
     {

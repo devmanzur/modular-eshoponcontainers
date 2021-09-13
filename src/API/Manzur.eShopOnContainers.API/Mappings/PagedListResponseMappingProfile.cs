@@ -2,7 +2,7 @@ using AutoMapper;
 using CrossCuttingConcerns.Api.Models;
 using CrossCuttingConcerns.Core.Features.Paging;
 
-namespace Catalog.Api.Mappings
+namespace Manzur.eShopOnContainers.API.Mappings
 {
     public class PagedListResponseMappingProfile : Profile
     {
