@@ -5,7 +5,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["src/API/Manzur.eShopOnContainers.API/Manzur.eShopOnContainers.API.csproj", "src/API/Manzur.eShopOnContainers.API/"]
+COPY ["API/Manzur.eShopOnContainers.API/Manzur.eShopOnContainers.API.csproj", "src/API/Manzur.eShopOnContainers.API/"]
 #left side is the local file relative location, right side is the location inside docker image file
 #the restore command must be executed where the copy command copied the files otherwise it wont work
 RUN dotnet restore "src/API/Manzur.eShopOnContainers.API/Manzur.eShopOnContainers.API.csproj"

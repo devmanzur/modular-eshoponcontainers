@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  eshopcatalogdb:
+    image: mongo
+    
+  eshopapi:
+    image: ${DOCKER_REGISTRY-}eshopapi
+    build:
+      context: .
+      dockerfile: API/Manzur.eShopOnContainers.API/Dockerfile
+
+volumes:
+  catalog_mongo_data:
