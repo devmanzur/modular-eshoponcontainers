@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Catalog.Application.Utils;
+using Catalog.Infrastructure.Configurations;
+using Catalog.Infrastructure.Utils;
 using Manzur.eShopOnContainers.API.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,8 +35,9 @@ namespace Manzur.eShopOnContainers.API
             services.AddHttpContextAccessor();
             services.AddSwagger("eShopOnContainers API", "The API for the modular monolith eshop on containers");
             services.AddRouting(options => options.LowercaseUrls = true);
-            services.AddApplication();
+            services.RegisterCatalogModule();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.Configure<MongoDbConfiguration>(Configuration.GetSection("MongoDbConfiguration"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

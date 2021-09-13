@@ -11,9 +11,7 @@ namespace Catalog.Core.Models
         public string Name { get; private set; }
 
         public string Description { get; private set; }
-
         public Price RegularPrice { get; private set; }
-
         public ImageId ImageId { get; private set; }
 
         public CategoryData Category { get; private set; }
@@ -28,10 +26,7 @@ namespace Catalog.Core.Models
         private List<Attribute> _attributes = new List<Attribute>();
         public IReadOnlyList<Attribute> Attributes => _attributes.ToList();
 
-        private List<Review> _reviews = new List<Review>();
-        public IReadOnlyList<Review> Reviews => _reviews.ToList();
-
-        public void AddDiscount(Discount discount)
+        public void Set(Discount discount)
         {
             Discount = discount;
         }

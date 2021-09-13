@@ -11,7 +11,7 @@ namespace CrossCuttingConcerns.Core.Features.Paging
 
         public List<T> Items { get; private set; }
 
-        public PagedList(Maybe<List<T>> items, PagingQuery query, int count)
+        public PagedList(Maybe<List<T>> items, PagingQuery query, long count)
         {
             Meta = new PagingMetaData
             {

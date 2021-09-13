@@ -4,9 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Catalog.Application.Utils
 {
-    public static class DependencyUtils
+    public static class MediatrDependencyUtils
     {
-        public static void AddApplication(this IServiceCollection services)
+        public static void AddApplicationMediatrBindings(this IServiceCollection services)
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
         }

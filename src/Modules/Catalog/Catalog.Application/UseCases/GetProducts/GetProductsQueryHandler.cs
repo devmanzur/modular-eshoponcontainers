@@ -9,7 +9,7 @@ using CSharpFunctionalExtensions;
 
 namespace Catalog.Application.UseCases.GetProducts
 {
-    public class GetProductsQueryHandler : IQueryHandler<GetProductsQuery,PagedList<Product>>
+    public class GetProductsQueryHandler : IQueryHandler<GetProductsQuery, PagedList<Product>>
     {
         private readonly IProductsRepository _productsRepository;
 
@@ -17,12 +17,13 @@ namespace Catalog.Application.UseCases.GetProducts
         {
             _productsRepository = productsRepository;
         }
-        
+
         public async Task<PagedList<Product>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            Maybe<List<Product>> products = await _productsRepository.GetProducts(request.Query.PageSize, request.Query.Offset());
-            var count = products.HasValue? await _productsRepository.GetTotalCount() : 0;
-            return new PagedList<Product>(products, request.Query,count);
+            Maybe<List<Product>> products =
+                await _productsRepository.GetProducts(request.Query.PageSize, request.Query.Offset());
+            var count = products.HasValue ? await _productsRepository.GetTotalCount() : 0;
+            return new PagedList<Product>(products, request.Query, count);
         }
     }
 }

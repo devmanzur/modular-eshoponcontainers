@@ -10,6 +10,6 @@ namespace Catalog.Core.Repositories
     public interface IProductsRepository
     {
         Task<List<Product>> GetProducts(int size, int offset);
-        Task<int> GetTotalCount();
+        Task<long> GetTotalCount();
     }
 }
