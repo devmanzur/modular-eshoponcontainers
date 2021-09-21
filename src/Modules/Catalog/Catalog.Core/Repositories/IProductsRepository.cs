@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Catalog.Core.Models;
 using Catalog.Core.ValueObjects;
 using CrossCuttingConcerns.Core.Features.Paging;
+using CSharpFunctionalExtensions;
 
 namespace Catalog.Core.Repositories
 {
@@ -11,5 +12,7 @@ namespace Catalog.Core.Repositories
     {
         Task<List<Product>> GetProducts(int size, int offset);
         Task<long> GetTotalCount();
+        Task Create(Product product);
+        Task<Result> Remove(Guid productId);
     }
 }

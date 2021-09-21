@@ -12,6 +12,12 @@ namespace Catalog.Core.ValueObjects
             Name = brand.Name;
         }
         
+        public BrandData(Guid id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+        
         public string Name { get; private set; }
 
         public Guid Id { get; private set; }

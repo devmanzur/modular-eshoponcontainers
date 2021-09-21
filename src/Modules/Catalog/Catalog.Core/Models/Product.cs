@@ -24,6 +24,21 @@ namespace Catalog.Core.Models
         public Discount Discount { get; private set; }
 
         private List<Attribute> _attributes = new List<Attribute>();
+
+        public Product(Guid id,string name, string description, Price regularPrice, ImageId imageId, CategoryData category,
+            BrandData brand, Stock availableStock, AverageRating averageRating)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            RegularPrice = regularPrice;
+            ImageId = imageId;
+            Category = category;
+            Brand = brand;
+            AvailableStock = availableStock;
+            AverageRating = averageRating;
+        }
+
         public IReadOnlyList<Attribute> Attributes => _attributes.ToList();
 
         public void Set(Discount discount)
